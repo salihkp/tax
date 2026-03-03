@@ -16,24 +16,23 @@
         </field>
     </record>
 
-    <record id="account_report_start_date_tree" model="ir.ui.view">
-        <field name="name">account.report.start.date.tree</field>
-        <field name="model">account.report</field>
+    <!-- Popup form to edit start date -->
+    <record id="res_company_tax_start_date_form" model="ir.ui.view">
+        <field name="name">res.company.tax.start.date.form</field>
+        <field name="model">res.company</field>
         <field name="arch" type="xml">
-            <tree string="Configure your start dates" editable="bottom" create="0" delete="0">
-<!--                <header>-->
-<!--                    <button name="action_create_composite_report" -->
-<!--                            type="object" -->
-<!--                            string="Create composite report"-->
-<!--                            class="btn-primary"/>-->
-<!--                    <button name="action_insert_in_spreadsheet" -->
-<!--                            type="object" -->
-<!--                            string="Insert in spreadsheet"-->
-<!--                            class="btn-secondary"/>-->
-<!--                </header>-->
-                <field name="name" string="Display Name" readonly="1"/>
-                <field name="tax_return_start_date" string="Start Date"/>
-            </tree>
+            <form string="Tax Return Start Date Configuration">
+                <group>
+                    <field name="name" readonly="1"/>
+                    <field name="account_tax_periodicity_start_date" 
+                           string="Tax Return Start Date"
+                           help="All tax reports will use this start date for period calculations"/>
+                </group>
+                <footer>
+                    <button string="Save" class="btn-primary" special="save"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
         </field>
     </record>
 </odoo>
